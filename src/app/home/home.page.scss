@@ -1,0 +1,84 @@
+// Paleta propia
+$fondo: #1b1b3a;
+$tarjeta: #2b2b5a;
+$texto: #f4f1ff;
+$acento: #ffd166;
+$colores: #ff6b6b, #ffd166, #2ec4b6, #4d9de0, #b388ff;
+
+// Ionic se personaliza con variables CSS, no con "background" directo
+ion-toolbar {
+  --background: #{$tarjeta};
+  --color: #{$acento};
+}
+
+ion-content {
+  --background: #{$fondo};
+  --color: #{$texto};
+}
+
+#container {
+  padding: 16px;
+  text-align: center;
+
+  h2 {
+    margin: 8px 0;
+    color: $acento;
+  }
+
+  strong {
+    display: block;
+    margin-bottom: 16px;
+    font-size: 1.2rem;
+  }
+}
+
+.contadores {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 12px;
+}
+
+.contador {
+  background: $tarjeta;
+  border-radius: 16px;
+  padding: 12px;
+
+  p {
+    margin: 8px 0 0;
+    font-size: 2rem;
+    font-weight: bold;
+  }
+}
+
+// Un color distinto por cada contador (1 a 5)
+@for $i from 1 through 5 {
+  .contador:nth-child(#{$i}) {
+    border: 2px solid nth($colores, $i);
+
+    ion-button {
+      --background: #{nth($colores, $i)};
+      --color: #1b1b3a;
+      --border-radius: 12px;
+    }
+
+    p {
+      color: nth($colores, $i);
+    }
+  }
+}
+
+.primos {
+  margin-top: 24px;
+
+  ion-button {
+    --background: #{$acento};
+    --color: #1b1b3a;
+    --border-radius: 20px;
+  }
+
+  p {
+    margin-top: 12px;
+    line-height: 1.8;
+    word-break: break-word;
+  }
+}

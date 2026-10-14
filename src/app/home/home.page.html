@@ -1,0 +1,33 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Múltiplos de:</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <div id="container">
+
+    <h2>Autor: {{ autor }}</h2>
+
+    <strong>Genera múltiplos</strong>
+
+    <div class="contadores">
+      @for (m of multiplos; track $index) {
+        <div class="contador">
+          <ion-button (click)="aumentar($index)">
+            Múltiplo de {{ m }}
+          </ion-button>
+          <p>{{ contadores[$index] }}</p>
+        </div>
+      }
+    </div>
+
+    <div class="primos">
+      <ion-button (click)="alternarPrimos()">Primos</ion-button>
+      @if (mostrarPrimos) {
+        <p>{{ primos.join(', ') }}</p>
+      }
+    </div>
+
+  </div>
+</ion-content>
